@@ -3,6 +3,7 @@ package functional;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 public class PredicateExample {
@@ -19,9 +20,10 @@ public class PredicateExample {
 
         // Setting predicate string logic
         Predicate<String> predicate = (s) -> s.startsWith("G");
+        Consumer<String> consumer = System.out::println;
         for(String str : list) {
             if(predicate.test(str))
-                System.out.println(str);
+                consumer.accept(str);
         }
     }
 
@@ -30,10 +32,11 @@ public class PredicateExample {
 
         // Setting predicate integer logic
         Predicate<Integer> predicate = (i) -> i%2==0;
+        Consumer<Integer> consumer = System.out::println;
 
         for(int k : list){
             if(predicate.test(k))
-                System.out.println(k);
+                consumer.accept(k);
         }
     }
 }
