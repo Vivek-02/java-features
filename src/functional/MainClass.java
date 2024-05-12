@@ -5,43 +5,50 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.function.Consumer;
 
-public class MainClass {
+public class MainClass{
 
     public static void main(String[] args) {
         // Testing functional interface
         MainClass mainClass = new MainClass();
-        int[] people = {3,2,2,1};
-        System.out.println(mainClass.numRescueBoats(people,3));
     }
 
-    public int numRescueBoats(int[] people, int limit) {
-        Arrays.sort(people);
-        int sum = 0;
-        int i = 0;
-        int j = people.length-1;
-        int count = 0;
-        Set<Integer> set = new HashSet<>();
-
-        while(i < j) {
-            sum = people[i] + people[j];
-            if(sum<=limit) {
-                sum=0;
-                count++;
-                set.add(i);
-                set.add(j);
-                i++;
-                j--;
-            } else if(sum>limit) {
-                sum = 0;
-                j--;
-            }
-        }
-
-        for(int k=i;k<people.length;k++) {
-            if(!set.contains(k))
-                count++;
-        }
-
-        return count;
+    /*public void run() {
+        lock();
+        show();
     }
+
+    public static synchronized void lock() {
+        System.out.println(
+                Thread.currentThread().getName());
+        {
+            System.out.println(
+                    "in block "
+                            + Thread.currentThread().getName());
+            System.out.println(
+                    "in block "
+                            + Thread.currentThread().getName()
+                            + " end");
+        }
+    }
+
+    public void show() {
+        System.out.println(Thread.currentThread().getName());
+        System.out.println("in show block " + Thread.currentThread().getName());
+        System.out.println("in show block " + Thread.currentThread().getName() + " end");
+    }
+
+    public static void main(String[] args)
+    {
+        MainClass g1 = new MainClass();
+        Thread t1 = new Thread(g1);
+        Thread t2 = new Thread(g1);
+        MainClass g2 = new MainClass();
+        Thread t3 = new Thread(g2);
+        t1.setName("t1");
+        t2.setName("t2");
+        t3.setName("t3");
+        t1.start();
+        t2.start();
+        t3.start();
+    }*/
 }

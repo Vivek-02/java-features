@@ -26,7 +26,7 @@ public class StreamFeatures {
         map.put("Sami","O+");
         map.put("Pujara","O+");
         map.put("Agarkar","A+");
-
+        Arrays.asList("");
         Map<String,List<String>> groupByBloodGroupMap = map.keySet().stream()
                 .collect(Collectors.groupingBy(map::get));
 
